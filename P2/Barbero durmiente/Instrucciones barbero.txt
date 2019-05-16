@@ -1,0 +1,22 @@
+VARIABLES PERMANENTES
+
+Como variable global he inicializado un entero "cliente_actual" a '-1' para llevar la cuenta de quien es el
+cliente actual y así poder obtener comprobaciones más exactas del programa en los 'cout' del procedimiento
+"cortarPeloACliente()".
+
+VARIABLES CONDICIÓN
+
+En este caso he escogido tres variables, ya que con 2 se me hacía un poco difícil.
+ 
+-La primera de estas variables es "cola_barbero" que indica si el barbero está durmiendo, pelando o esperando
+a un cliente. Se usa en el procedimiento "cortarPelo (int)" en una comprobación '!cola_barbero.empty' para comprobar
+si el barbero está durmiendo y de ser así despertarlo más adelante de este mismo procedimiento.
+
+- La segundo variable es "cola_clientes" que controla si hay alguien en la sala de espera y de ser así los mantiene
+en la cola de forma ordenada de llegada. Se usa en el procedimiento "siguienteCliente()" para llamar indicar que el
+barbero ha llamado a un nuevo cliente. También se usa en "cortarPelo(int)" para pedirles que esperen en caso de
+haber alguien pelándose en la silla.
+
+-La última variable es "cola_silla" que indica si hay alguien pelándose en la silla. Los clientes esperan en la
+sala de espera de ser así "cortarPelo(int)" y al acabar el barbero de pelar a un cliente "finCliente()" hace un
+'cola_silla.signal()' indicando que puede pasar alguien a la silla.

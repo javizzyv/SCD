@@ -1,0 +1,17 @@
+VARIABLES GLOBALES
+
+No es global, pero tengo una variable "ingrediente" inicializado a '0' para llevar la cuenta del ingrediente actual.
+
+VARIABLES CONDICIÓN
+
+Para empezar, tengo "cola_estanquero" que comprueba si el estanquero puede poner o no un ingrediente en 
+el mostrador, y además un array de variables condición "cola_fumadores[3]" que controla cuando un fumador
+en concreto puede coger un ingrediente y fumar.
+
+-cola_estanquero : se hace un 'cola_estanquero.signal()' en el procedimiento "obtenerIngrediente(int)" una vez se
+ha cogido el ingrediente para avisar al estanquero de que puede poner uno nuevo, y un 'cola_estanquero.wait()' en
+"esperarRecogidaIngrediente()" que hace esperar al estanquero a que se recoja el último ingrediente puesto.
+
+-cola_fumadores[] : se hace un 'cola_fumadores[i].signal()' en "ponerIngrediente(int)" para avisar al fumador en
+concreto de que ya puede recoger su ingrediente, y un 'cola_fumadores[i].wait()' en "obtenerIngrediente(int)" que
+hace esperar a cada fumador hasta que se ponga su ingrediente en el mostrador.
