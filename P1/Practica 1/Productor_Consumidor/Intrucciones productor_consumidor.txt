@@ -1,0 +1,22 @@
+SEMÁFOROS:
+
+En este caso solo necesitamos dos semáforos "libres" y "ocupadas" 
+para representar el buffer. Se inicializa "libres" al tamaño del buffer
+para poder producir tantos elementos como espacio en el buffer haya.
+Por otro lado "ocupadas" se inicializa a "0" ya que aún no se ha
+metido ningún elemento en el buffer.
+
+
+HEBRAS:
+
+En la hebra productora "funcion_hebra_productora" se hace un
+sem_wait de "libres" después de producir un dato, indicando que
+se ha guardado un elemento en el buffer. También se hace un 
+sem_signal de "ocupadas" para indicar que se puede consumir un
+elemento del buffer.
+
+En la hebra consumidora "funcion_hebra_consumidora" se hace un
+sem_wait de "ocupadas" para esperar a que haya un elemento en
+el buffer, al acabar de consumir ese elemento se hace un sem_signal
+de "libres" para indicar que se ha consumido un elemento y que, por
+lo tanto, ha quedado un hueco libre en el buffer. 

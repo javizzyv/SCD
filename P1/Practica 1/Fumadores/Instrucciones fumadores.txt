@@ -1,0 +1,29 @@
+SEMÁFOROS:
+
+En este caso se trata de un array de semáforos "ingr_disp[]" que va a indicar
+si hay disponible uno de los ingredientes solicitados. 
+Obviamente tiene como valor inicial "0" ya que el estanquero aún no ha generado
+ningún ingrediente.
+
+Por otro lado, se ha inicializado también el semáforo "mostr_vacio" que indica cuando
+en el mostrador no hay puesto ningún ingrediente, está inicializado a "1" debido a 
+que al comenzar el programa el mostrador está vacío y el estanquero tiene que 
+generar un ingrediente.
+
+
+HEBRAS:
+
+En la hebra del estanquero "funcion_hebra_estanquero" se utilizan ambos semáforos.
+En primer lugar, justo después de generar un ingrediente (no lo ponemos antes para aumentar
+la productividad) hay un sem_wait de "mostr_vacio" para comprobar si el mostrador está
+vacío y de ser así poner el ingrediente en el mostrador, en caso contrario se espera a que
+esté vacío.
+En segundo lugar al finalizar la función hay un sem_signal de "ingr_disp[i]" para indicar
+que hay un ingrediente disponible, y a la vez se especifica cual de ellos es en concreto.
+
+En las hebras de los fumadores "funcion_hebra_fumador" se utilizan también ambos.
+Al principio del bucle se hace un sem_wait por cada fumador para esperar al 
+ingrediente en concreto que precisan "ingr_disp[num_fumador]".
+Al terminar el bucle (pero antes de consumir el ingrediente) se hace un sem_signal
+de "mostr_vacio" para indicar que el fumador ha cogido el ingrediente del mostrador.
+
