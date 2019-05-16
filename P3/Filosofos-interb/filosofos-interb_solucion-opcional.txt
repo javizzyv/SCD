@@ -1,0 +1,1 @@
+Que uno de los filosofos coja los tenedores en el orden inverso, así impide a otro coger el suyo y no se produce interbloqueo.

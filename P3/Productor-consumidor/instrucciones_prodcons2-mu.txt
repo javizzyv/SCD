@@ -1,0 +1,12 @@
+Para este problema la idea era adaptar la plantilla para varios productores y consumidores, pra ello, simplemente
+he añadido dos etiquetas, 'etiq_prod' y 'etiq_cons' para indicar si el buffer tiene que interpretar el mensaje como
+si fuese un productor o un consumidor en caso contrario.
+
+En este modelo, la función del productor envía el valor mediante un mensaje síncrono al buffer, y la función
+consumidor hace una petición al buffer y espera hasta que le de permiso y le pase el valor a consumir.
+
+Ahora bien la función buffer actúa como su nombre indica, almacenando hasta un máximo de 10 items para
+su consumición.  El buffer recibe un mensaje de cualquier otro proceso y, según su etiqueta, actúa como un
+productor o como un consumidor en caso contrario.
+
+En el main simplemente he añadido la llamada a la nueva función.

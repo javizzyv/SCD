@@ -1,0 +1,14 @@
+En este problema he tomado como plantilla el ejercicio 'filosofos-interb', y he modificado algunas funciones además
+de incorporar una nueva, la del camarero. Sumado a esto, he inicializado dos nuevos atributos globales que se 
+tratan de dos nuevas etiquetas 'etiq_levantarse' y 'etiq_sentarse' que ayudarán a saber cuándo un filósofo se quiere
+sentar en la mesa y cuando se quiere levantar. 
+
+En la función de los filósofos simplemente he añadido dos nuevos mensajes, uno al principio y otro al final, que 
+informan al camarero de que se quiere sentar y levantar de la mesa respectivamente.
+
+La función de los tenedores la he dejado igual.
+
+La nueva función, la del camarero, simplemente recibe mensajes de los filósofos permitiéndoles sentarse solo si
+no hay aún 4 en la mesa, impidiendo así el interbloqueo.
+
+En el main simplemente he añadido la nueva función camarero.

@@ -1,0 +1,5 @@
+Respecto a este problema, simplemente he añadido 2 atributos globales nuevo, dos etiquetas, que serían 
+'etiq_pedir' y 'etiq_soltar' para llevar la cuenta de en qué momento un mensaje de un filosofo indica que
+quiere coger un tenedor o devolverlo a la mesa. De esta forma simplemente añadimos los mensajes tanto
+en la función de los filósofos como la de los tenedores especificando lo comentado anteriormente en cada
+uno de los mensajes.
